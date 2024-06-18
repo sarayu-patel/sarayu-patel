@@ -1,16 +1,20 @@
-## Hi there 👋
-
-<!--
-**sarayu-patel/sarayu-patel** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+import java.util.*;
+public class Main{
+    public static void main(String[]args){
+        int arr[]={8,2,5,9,11};
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=0;j<arr.length-i-1;j++){
+//for swaping the values  after checking the condition:
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        System.out.println("after sorting");
+        for(int elements:arr){
+            System.out.print(elements + " ");
+        }
+    }
+}
