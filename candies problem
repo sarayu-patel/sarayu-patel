@@ -1,0 +1,47 @@
+//There are N children standing in a line with some rating value. You want to distribute a minimum number of candies to 
+these children such that: Each child must have at least one candy. The children with higher ratings will have more candies 
+than their neighbours. You need to write a program to calculate the minimum candies you must give.
+
+
+  import java.util.*;
+public class Main{
+    public static void main(String[]args){
+        int rating[]={3,1,2,9,4,7,5,6};
+        int n=8;
+        int left[]=new int[n];
+        int right[]=new int[n];
+        
+        //intialize both the arrays with 1
+        
+        for(int i=0;i<n;i++){
+            left[i]=right[i]=1;
+        }
+        
+        
+        //fill the left array
+        
+        for(int i=1;i<n;i++){
+            if(rating[i]>rating[i-1]){
+                left[i]=left[i-1]+1;
+            }
+        }
+        
+        //fill the right array
+        
+        for(int i=n-2;i<=0;i--){
+            if(rating[i]>rating[i+1]){
+                right[i]=right[i+1]+1;
+                
+            }
+        }
+        
+        //calculate the total number of minimum candies
+        
+        int ans=0;
+        for(int i=0;i<n;i++){
+           ans+=Math.max(left[i],right[i]); 
+        }
+        System.out.print("the total minimum number of candies are:"+ans);
+        
+    }
+}
