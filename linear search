@@ -1,0 +1,32 @@
+public class Main{
+    public static int linearSearch(int arr[],int target){
+        
+        //logic to get the index of target element
+        
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==target){
+                return i;
+            }
+        }
+        return -1;
+        
+    }
+    public static void main(String[]rags){
+        int numbs[]={3,2,1,4,5,6,7,89,0};
+        
+        int target=2;
+        
+        //calling the function and storing the value in  variable "result"
+        
+        
+        int result=linearSearch(numbs,target);
+        if(result!=-1){
+            System.out.println("the index of target number is:"+result);
+        }
+        else{
+            System.out.println("the element not found");
+        }
+    
+        
+    }
+}
