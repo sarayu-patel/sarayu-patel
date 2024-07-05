@@ -1,0 +1,39 @@
+public class Main{
+     public static void main(String[]args){
+         //create an array which is sorted
+         int arr[]={1,2,3,4,5,6,7};
+         
+         //fix a target element 
+         int target=8;
+         //call the function and store the index value of that element in a variable
+         
+         int result=binarySearch(arr,target);
+         if(result!=-1){
+              System.out.println("the index of the element :"+result);
+             
+         }else{
+             System.out.println("no element found");
+         }
+        
+    }
+    public static int binarySearch(int arr[],int target){
+        int start=0;
+        int end=arr.length-1;
+        
+        //logic of binarySearch
+        
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(target<arr[mid]){
+                end=mid-1;
+            }
+            else if(target>arr[mid]){
+                start=mid+1;
+            }
+            else{
+                return mid;
+            }
+        }
+        return -1;
+    }
+}
