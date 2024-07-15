@@ -1,0 +1,62 @@
+public class Main{
+    public static void merge(int arr[],int start,int mid,int end){
+        int merged[]=new int[end-start+1];
+        int idx1=start;
+        int idx2=mid+1;
+        int k=0;
+        
+        //if both condition is true then only this while loop will run
+        
+        while(idx1<=mid && idx2<=end){
+            if(arr[idx1]<arr[idx2]){
+                merged[k]=arr[idx1];
+                k++;
+                idx1++;
+            }
+            else{
+                merged[k]=arr[idx2];
+                k++;
+                idx2++;
+            }
+            
+        }
+        //if the above while loop is violated that means any of the condition fails then it will come to the loop according to the condition
+        
+        while(idx1<=mid){
+            merged[k]=arr[idx1];
+            k++;
+            idx1++;
+        }
+        while(idx2<=end){
+            merged[k]=arr[idx2];
+            k++;
+            idx2++;
+        }
+        
+        //to merge the subarrays and copy into original array
+        
+        for(int i=0, j=start;i<merged.length;i++,j++)
+        arr[j]=merged[i];
+    }
+    public static void divide(int arr[],int start,int end){
+        //dividingy an array 
+        
+        if(start<end){
+            int mid=start+(end-start)/2;
+            divide(arr,start,mid);
+            divide(arr,mid+1,end);
+            merge(arr,start,mid,end);
+            
+        }
+        
+    }
+    public static void main(String[]args){
+        int arr[]={9,3,6,1,8,2,0,5,4};
+        divide(arr,0,arr.length-1);
+        for(int elements:arr){
+            System.out.print(elements+" ");
+        }
+        
+        
+    }
+}
