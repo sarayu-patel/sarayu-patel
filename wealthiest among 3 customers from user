@@ -1,0 +1,65 @@
+//input  three customers having bank accounts(arrays).calculate the balance in the account and declare the wealthiest person
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=  new Scanner(System.in);
+       System.out.println("enter the array size of customer1:");
+      int p=sc.nextInt();
+      System.out.println("enter the array size of customer2:");
+      int q=sc.nextInt();
+      System.out.println("enter the size of customer3:");
+      int r=sc.nextInt();
+     
+      
+      int []cust1=new int[p];
+      int []cust2=new int[q];
+      int []cust3=new int[r];
+      int wealthp=0;
+      int wealthq=0;
+      int wealthr=0;
+      
+      for(int i=0;i<p;i++){
+        cust1[i]=sc.nextInt();
+        
+      }
+      for(int i=0;i<q;i++){
+        cust2[i]=sc.nextInt();
+        
+      }
+      for(int i=0;i<r;i++){
+        cust3[i]=sc.nextInt();
+       
+      }
+      for(int i=0;i<p;i++){
+        wealthp+=cust1[i];
+        
+      }
+      for(int i=0;i<q;i++){
+         wealthq+=cust2[i];
+        
+      }
+      for(int i=0;i<r;i++){
+        wealthr+=cust3[i];
+        
+      }
+      if(wealthp>wealthq && wealthp>wealthr){
+        System.out.println("the wealthiest person is customer1: " +wealthp);
+      }
+      else if(wealthq>wealthr && wealthq>wealthp){
+          System.out.println("the wealthiest persion is customer2: " +wealthq);
+        }
+      else if(wealthr>wealthp && wealthr>wealthq){
+          System.out.println("the wealthiest person is customer3: " +wealthr);
+        }
+      else{
+          System.out.println("all are equal");
+      }
+      
+
+     
+      
+
+  }
+}
